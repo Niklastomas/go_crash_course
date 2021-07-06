@@ -16,8 +16,11 @@ func main() {
 	delete(emails, "Test1")
 	fmt.Println(emails)
 
+	// Pop value
+	pop, ok := emails["Test2"]
+	fmt.Println(pop, ok)
+
 	// Declare map and add key values
 	scores := map[string]int{"Bob": 10, "Joe": 20}
-	print(scores)
-
+	fmt.Println(scores)
 }

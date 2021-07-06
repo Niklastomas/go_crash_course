@@ -27,4 +27,7 @@ func main() {
 
 	}
 
+	message := "Hej"
+	fmt.Printf("%v, %T\n", message[0], string(message[0]))
+
 }

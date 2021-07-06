@@ -5,14 +5,22 @@ import (
 	"strconv"
 )
 
+type Human struct {
+	firstName string
+	lastName  string
+}
+
 type Person struct {
-	// firstName string
-	// lastName  string
-	// city      string
-	// gender    string
-	// age       int
-	firstName, lastName, city, gender string
-	age                               int
+	Human
+	city   string
+	gender string
+	age    int
+}
+
+// struct with tag
+type Book struct {
+	name  string `required max:"100"`
+	pages int
 }
 
 // Gretting method (value reciever)
@@ -37,11 +45,14 @@ func (p *Person) getMarried(lastName string) {
 func main() {
 	// Init person using struct
 	person1 := Person{
-		firstName: "Samantha", lastName: "Smith", city: "Boston",
-		gender: "f", age: 27,
+		Human:  Human{firstName: "Samantha", lastName: "Smith"},
+		gender: "f", age: 27, city: "Boston",
 	}
 	// Alternative
-	person2 := Person{"Niklas", "Tomas", "Stenstorp", "m", 27}
+	person2 := Person{
+		Human{"Niklas", "Tomas"},
+		"Stenstorp", "m", 27,
+	}
 
 	person1.getMarried("Tomas")
 	person2.hasBirthday()
